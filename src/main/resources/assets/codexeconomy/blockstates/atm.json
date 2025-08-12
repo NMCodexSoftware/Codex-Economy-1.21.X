@@ -1,0 +1,9 @@
+{
+  "variants": {
+    "facing=north": { "model": "codexeconomy:block/atm", "uvlock": true },
+    "facing=east":  { "model": "codexeconomy:block/atm", "y":  90, "uvlock": true },
+    "facing=south": { "model": "codexeconomy:block/atm", "y": 180, "uvlock": true },
+    "facing=west":  { "model": "codexeconomy:block/atm", "y": 270, "uvlock": true }
+  }
+}
+

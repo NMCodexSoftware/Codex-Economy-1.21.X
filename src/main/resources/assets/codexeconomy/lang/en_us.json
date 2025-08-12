@@ -1,0 +1,16 @@
+{
+  "item.codexeconomy.bank_note": "Bank Note",
+  "item.codexeconomy.credit_card": "Credit Card",
+  "item.codexeconomy.debit_card": "Debit Card",
+  "item.codexeconomy.raw_dysanium": "Raw Dysanium",
+  "item.codexeconomy.dysanium_ingot": "Dysanium Ingot",
+
+
+  "block.codexeconomy.dysanium_block": "Dysanium Block",
+  "block.codexeconomy.dysanium_ore": "Dysanium Ore",
+  "block.codexeconomy.deepslate_dysanium_ore": "Deepslate Dysanium Ore",
+  "block.codexeconomy.atm": "ATM",
+
+  "itemgroup.codexeconomy.codex_economy": "Codex Economy"
+
+}
