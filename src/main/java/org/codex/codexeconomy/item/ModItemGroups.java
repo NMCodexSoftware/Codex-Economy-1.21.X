@@ -10,7 +10,7 @@ import net.minecraft.util.Identifier;
 import org.codex.codexeconomy.CodexEconomy;
 import org.codex.codexeconomy.block.ModBlocks;
 
-public final class ModItemGroups {
+public class ModItemGroups {
     public static final ItemGroup CODEX_ECONOMY = Registry.register(Registries.ITEM_GROUP,
             Identifier.of(CodexEconomy.MOD_ID, "codex_economy"),
             FabricItemGroup.builder().icon(() -> new ItemStack(ModItems.CREDIT_CARD))

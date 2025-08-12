@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "codexeconomy:dysanium_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "codexeconomy:dysanium_ingot"
+  }
+}

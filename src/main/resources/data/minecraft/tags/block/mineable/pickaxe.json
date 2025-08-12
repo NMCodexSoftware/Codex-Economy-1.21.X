@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "codexeconomy:atm",
+    "codexeconomy:dysanium_block",
+    "codexeconomy:dysanium_ore",
+    "codexeconomy:deepslate_dysanium_ore"
+  ]
+}
