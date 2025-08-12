@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "codexeconomy",
+	"version": "${version}",
+	"name": "Codex Economy",
+	"description": "A custom economy mod for Minecraft",
+	"authors": [
+		"Codex"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/codexeconomy/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"org.codex.codexeconomy.CodexEconomy"
+		],
+		"fabric-datagen": [
+			"org.codex.codexeconomy.CodexEconomyDataGenerator"
+		],
+		"client": [
+			"org.codex.codexeconomy.CodexEconomyClient"
+		]
+	},
+	"mixins": [
+		"codexeconomy.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.17.2",
+		"minecraft": "~1.21",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
