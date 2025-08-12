@@ -3,6 +3,7 @@ package org.codex.codexeconomy;
 import net.fabricmc.api.ModInitializer;
 
 import org.codex.codexeconomy.block.ModBlocks;
+import org.codex.codexeconomy.item.ModItemGroups;
 import org.codex.codexeconomy.item.ModItems;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +14,7 @@ public class CodexEconomy implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		ModItemGroups.registerItemGroups();
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
 	}
