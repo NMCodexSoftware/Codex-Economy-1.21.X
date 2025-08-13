@@ -17,15 +17,20 @@ public class ModItemGroups {
                 .displayName(Text.translatable("itemgroup.codexeconomy.codex_economy"))
                 .entries((displayContext, entries) -> {
                     // Add items
+                    entries.add(ModItems.RAW_DYSANIUM);
+                    entries.add(ModItems.DYSANIUM_INGOT);
+
+                    // Add special items
                     entries.add(ModItems.BANK_NOTE);
                     entries.add(ModItems.CREDIT_CARD);
                     entries.add(ModItems.DEBIT_CARD);
-                    entries.add(ModItems.RAW_DYSANIUM);
-                    entries.add(ModItems.DYSANIUM_INGOT);
+
                     // Add blocks
                     entries.add(ModBlocks.DYSANIUM_BLOCK);
                     entries.add(ModBlocks.DYSANIUM_ORE);
                     entries.add(ModBlocks.DEEPSLATE_DYSANIUM_ORE);
+
+                    // Add special blocks
                     entries.add(ModBlocks.ATM);
             }).build());
 
