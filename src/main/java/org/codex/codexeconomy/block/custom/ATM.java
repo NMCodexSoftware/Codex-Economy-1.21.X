@@ -2,15 +2,14 @@ package org.codex.codexeconomy.block.custom;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.block.*;
-import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.ai.pathing.NavigationType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.Properties;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -18,6 +17,7 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
+import org.codex.codexeconomy.rendering.screens.ATMScreen;
 
 public class ATM extends HorizontalFacingBlock {
     public static final MapCodec<ATM> CODEC = Block.createCodec(ATM::new);
@@ -59,6 +59,15 @@ public class ATM extends HorizontalFacingBlock {
         return false;
     }
 
+    @Override
+    protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
+        if (world.isClient) {
+            MinecraftClient.getInstance().setScreen(
+                    new ATMScreen(Text.empty())
+            );
+        }
+        return ActionResult.SUCCESS;
+    }
 }
 
 
