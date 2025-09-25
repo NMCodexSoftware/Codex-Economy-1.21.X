@@ -3,35 +3,39 @@ package org.codex.codexeconomy.data;
 import net.minecraft.nbt.NbtCompound;
 
 public class PlayerData {
-    private double balance;
-    private int creditScore; // Example future property
-    private double loanAmount; // Example future property
+    private double cashBalance;   // money in hand
+    private double bankBalance;   // money in bank
+    private int creditScore;
+    private double loanAmount;
 
     public PlayerData() {
-        this.balance = 0.00;
-        this.creditScore = 600; // default value
+        this.cashBalance = 0.00;
+        this.bankBalance = 0.00;
+        this.creditScore = 600;
         this.loanAmount = 0.00;
     }
 
-    // --- Balance ---
-    public double getBalance() { return balance; }
+    // --- Cash ---
+    public double getCashBalance() { return cashBalance; }
+    public void setCashBalance(double balance) { this.cashBalance = balance; }
 
-    public void setBalance(double balance) { this.balance = balance; }
+    // --- Bank ---
+    public double getBankBalance() { return bankBalance; }
+    public void setBankBalance(double balance) { this.bankBalance = balance; }
 
     // --- Credit score ---
     public int getCreditScore() { return creditScore; }
-
     public void setCreditScore(int creditScore) { this.creditScore = creditScore; }
 
     // --- Loan amount ---
     public double getLoanAmount() { return loanAmount; }
-
     public void setLoanAmount(double loanAmount) { this.loanAmount = loanAmount; }
 
     // --- Serialization ---
     public NbtCompound toNbt() {
         NbtCompound tag = new NbtCompound();
-        tag.putDouble("balance", balance);
+        tag.putDouble("cashBalance", cashBalance);
+        tag.putDouble("bankBalance", bankBalance);
         tag.putInt("creditScore", creditScore);
         tag.putDouble("loanAmount", loanAmount);
         return tag;
@@ -39,7 +43,8 @@ public class PlayerData {
 
     public static PlayerData fromNbt(NbtCompound tag) {
         PlayerData data = new PlayerData();
-        data.balance = tag.getDouble("balance");
+        data.cashBalance = tag.getDouble("cashBalance");
+        data.bankBalance = tag.getDouble("bankBalance");
         data.creditScore = tag.getInt("creditScore");
         data.loanAmount = tag.getDouble("loanAmount");
         return data;

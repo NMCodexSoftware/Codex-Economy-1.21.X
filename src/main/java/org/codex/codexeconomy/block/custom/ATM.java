@@ -17,7 +17,7 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
-import org.codex.codexeconomy.rendering.screens.ATMScreen;
+import org.codex.codexeconomy.rendering.screens.atm.MainMenu;
 
 public class ATM extends HorizontalFacingBlock {
     public static final MapCodec<ATM> CODEC = Block.createCodec(ATM::new);
@@ -41,10 +41,10 @@ public class ATM extends HorizontalFacingBlock {
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext ctx) {
         Direction dir = state.get(FACING);
         return switch (dir) {
-            case NORTH -> VoxelShapes.cuboid(0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.5f);
-            case SOUTH -> VoxelShapes.cuboid(0.0f, 0.0f, 0.5f, 1.0f, 1.0f, 1.0f);
-            case EAST -> VoxelShapes.cuboid(0.5f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f);
-            case WEST -> VoxelShapes.cuboid(0.0f, 0.0f, 0.0f, 0.5f, 1.0f, 1.0f);
+            case NORTH -> VoxelShapes.cuboid(0.3f, 0.1f, 0.1f, 0.9f, 1.85f, 0.9f);
+            case SOUTH -> VoxelShapes.cuboid(0.3f, 0.1f, 0.1f, 0.9f, 1.85f, 0.9f);
+            case EAST -> VoxelShapes.cuboid(0.3f, 0.1f, 0.1f, 0.9f, 1.85f, 0.9f);
+            case WEST -> VoxelShapes.cuboid(0.3f, 0.1f, 0.1f, 0.9f, 1.85f, 0.9f);
             default -> VoxelShapes.fullCube();
         };
     }
@@ -63,7 +63,7 @@ public class ATM extends HorizontalFacingBlock {
     protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
         if (world.isClient) {
             MinecraftClient.getInstance().setScreen(
-                    new ATMScreen(Text.empty())
+                    new MainMenu(Text.empty())
             );
         }
         return ActionResult.SUCCESS;

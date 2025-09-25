@@ -11,7 +11,8 @@ public class CodexEconomyClient implements ClientModInitializer {
         // Handle packet reception
         ClientPlayNetworking.registerGlobalReceiver(PlayerDataSyncS2CPacket.ID, (packet, context) -> {
             // Save to a client-only copy
-            ClientEconomyData.setBalance(packet.balance());
+            ClientEconomyData.setCashBalance(packet.cashBalance());
+            ClientEconomyData.setBankBalance(packet.bankBalance());
             ClientEconomyData.setCreditScore(packet.creditScore());
             ClientEconomyData.setLoanAmount(packet.loanAmount());
         });

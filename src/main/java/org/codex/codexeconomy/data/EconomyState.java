@@ -48,24 +48,45 @@ public class EconomyState extends PersistentState {
         return players.computeIfAbsent(player, id -> new PlayerData());
     }
 
-    // --- Balance ---
-    public void setBalance(UUID player, double balance) {
-        getOrCreate(player).setBalance(balance);
+    // --- Cash Balance ---
+    public double getCashBalance(UUID player) {
+        return getOrCreate(player).getCashBalance();
+    }
+
+    public void setCashBalance(UUID player, double balance) {
+        getOrCreate(player).setCashBalance(balance);
         this.markDirty();
     }
 
-    public void setBalance(UUID player, double balance, ServerPlayerEntity playerEntity) {
+    public void setCashBalance(UUID player, double balance, ServerPlayerEntity playerEntity) {
         PlayerData data = getOrCreate(player);
-        data.setBalance(balance);
+        data.setCashBalance(balance);
         this.markDirty();
         EconomyNetworkingHelper.syncPlayerData(playerEntity, data);
     }
 
-    public double getBalance(UUID player) {
-        return getOrCreate(player).getBalance();
+    // --- Bank Balance ---
+    public double getBankBalance(UUID player) {
+        return getOrCreate(player).getBankBalance();
+    }
+
+    public void setBankBalance(UUID player, double balance) {
+        getOrCreate(player).setBankBalance(balance);
+        this.markDirty();
+    }
+
+    public void setBankBalance(UUID player, double balance, ServerPlayerEntity playerEntity) {
+        PlayerData data = getOrCreate(player);
+        data.setBankBalance(balance);
+        this.markDirty();
+        EconomyNetworkingHelper.syncPlayerData(playerEntity, data);
     }
 
     // --- Credit score ---
+    public int getCreditScore(UUID player) {
+        return getOrCreate(player).getCreditScore();
+    }
+
     public void setCreditScore(UUID player, int score) {
         getOrCreate(player).setCreditScore(score);
         this.markDirty();
@@ -78,11 +99,11 @@ public class EconomyState extends PersistentState {
         EconomyNetworkingHelper.syncPlayerData(playerEntity, data);
     }
 
-    public int getCreditScore(UUID player) {
-        return getOrCreate(player).getCreditScore();
+    // --- Loan amount ---
+    public double getLoanAmount(UUID player) {
+        return getOrCreate(player).getLoanAmount();
     }
 
-    // --- Loan amount ---
     public void setLoanAmount(UUID player, double amount) {
         getOrCreate(player).setLoanAmount(amount);
         this.markDirty();
@@ -93,10 +114,6 @@ public class EconomyState extends PersistentState {
         data.setLoanAmount(amount);
         this.markDirty();
         EconomyNetworkingHelper.syncPlayerData(playerEntity, data);
-    }
-
-    public double getLoanAmount(UUID player) {
-        return getOrCreate(player).getLoanAmount();
     }
 
     // --- Accessor ---

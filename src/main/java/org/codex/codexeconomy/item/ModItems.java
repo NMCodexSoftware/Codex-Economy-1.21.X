@@ -27,13 +27,5 @@ public class ModItems {
 
     public static void registerModItems() {
         CodexEconomy.LOGGER.info("Registering Mod Items for " + CodexEconomy.MOD_ID);
-
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {
-            entries.add(BANK_NOTE);
-            entries.add(CREDIT_CARD);
-            entries.add(DEBIT_CARD);
-            entries.add(RAW_DYSANIUM);
-            entries.add(DYSANIUM_INGOT);
-        });
     }
 }
